@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_assignment_assignment,assignment_assignment,model_assignment_assignment,,1,1,1,1
+access_billing_billing,billing_billing,model_billing_billing,,1,1,1,1
+access_stage_stage,stage_stage,model_stage_stage,,1,1,1,1
+access_stage_history,stage_history,model_stage_history,,1,1,1,1

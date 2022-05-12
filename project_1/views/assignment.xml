@@ -1,0 +1,93 @@
+<odoo>
+  <data>
+        <!-- Assignment -->
+
+        <record id="jenis_assignment_tree" model="ir.ui.view">
+            <field name="name">assignment.tree</field>
+            <field name="model">assignment.assignment</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="partner_id"/>
+                    <field name="agreement"/>
+                    <field name="customer"/>
+                    <field name="home_address_1"/>
+                    <field name="home_address_2"/>
+                    <field name="no_hp"/>
+                    <field name="home_number"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="assignment_form" model="ir.ui.view">
+            <field name="name">assignment.form</field>
+            <field name="model">assignment.assignment</field>
+            <field name="arch" type="xml">
+                <form string="Assignment">
+                    <sheet>
+                    	<div class="oe_title">
+                            <span class="o_form_label" >Customer Code</span>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="partner_id"/>
+                                <field name="agreement"/>
+                                <field name="customer"/>
+                                <field name="open_date"/>
+                                <field name="lpd"/>
+                                <field name="lpa"/>
+                                <field name="sex"/>
+                                <field name="age"/>
+                                <field name="del_del"/>
+                            </group>
+
+                            <group>
+                                <field name="credit_limit"/>
+                                <field name="total_tagihan"/>
+                                <field name="min_payment"/>
+                                <field name="recover"/>
+                                <field name="angs_ke"/>
+                                <field name="product_desc"/>
+                                
+                            </group>
+
+
+                        </group>
+                        <notebook colspan="4">
+                            <page name="detail_address" string="Detail Address">
+                                <group>
+                                    <field name="home_address_1"/>
+                                    <field name="home_address_2"/>
+                                    <field name="city"/>
+                                    <field name="region"/>
+                                    <field name="zip_code"/>
+                                    <field name="house_owner"/>
+                                    <field name="no_hp"/>
+                                    <field name="home_number"/>
+                                    <field name="birthday"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_assignment" model="ir.actions.act_window">
+            <field name="name">Assignment</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">assignment.assignment</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_monitoring" name="Monitoring" sequence="200"/>
+            <menuitem id="menu_assignment" name="Assignment" parent="menu_monitoring" action="action_assignment" sequence="10"/>
+            
+
+    </data>
+</odoo>

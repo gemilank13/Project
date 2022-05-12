@@ -1,0 +1,65 @@
+<odoo>
+  <data>
+        <!-- Assignment -->
+
+        <record id="billing_tree" model="ir.ui.view">
+            <field name="name">billing.tree</field>
+            <field name="model">billing.billing</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="cust_code_id"/>
+                    <field name="user_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="billing_form" model="ir.ui.view">
+            <field name="name">billing.form</field>
+            <field name="model">billing.billing</field>
+            <field name="arch" type="xml">
+                <form string="Billing">
+                    <sheet>
+                    	<div class="oe_title">
+                            <span class="o_form_label" >Billing Code</span>
+                            <h1>
+                                <field name="name"/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="cust_code_id"/>
+                                <field name="user_id"/>
+                            </group>
+
+
+                        </group>
+                        <group>
+                            <field name="stage_history_ids">
+                                <tree editable="bottom" string="Stage History" create="1">
+                                    <field name="date"/>
+                                    <field name="stage_from"/>
+                                    <field name="stage_to"/>
+                                    <field name="desc"/>
+                                    <field name="user_id"/>
+                                </tree>
+                            </field>
+                        </group>
+                        
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="action_billing" model="ir.actions.act_window">
+            <field name="name">Billing</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">billing.billing</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="menu_billing" name="Billing" parent="menu_monitoring" action="action_billing" sequence="11"/>
+
+    </data>
+</odoo>
